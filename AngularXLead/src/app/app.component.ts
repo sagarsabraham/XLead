@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { TableOutlineComponent } from './shared/table-outline/table-outline.component';
-import { TableCheckboxComponent } from './shared/checkbox/checkbox.component';
-
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,TableOutlineComponent,TableCheckboxComponent],
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularProject';
+  title = 'contact-app';
 }

@@ -1,0 +1,5 @@
+<app-table-outline [dataSource]="dataSource" [displayedColumns]="displayedColumns" [headers]="headers">
+    <app-checkbox *ngFor="let row of dataSource.data" [isChecked]="row.selected" (checkboxChange)="onCheckboxChange(row, $event)"></app-checkbox>
+  </app-table-outline>
+  
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

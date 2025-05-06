@@ -1,76 +1,42 @@
 <div class="mat-elevation-z8 table-container">
-    <mat-table [dataSource]="[]">
-      <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef class="checkbox-cell">
-          <mat-checkbox (change)="onSelectAll($event)"></mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row" class="checkbox-cell">
-    
-        </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="contactName">
-        <th mat-header-cell *matHeaderCellDef class="header-cell">
-          Contact Name
-          <span class="sort-filter-icons">
-            <mat-icon>arrow_upward</mat-icon>
-            <mat-icon>filter_list</mat-icon>
-          </span>
-        </th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
-  
-      <ng-container matColumnDef="companyName">
-        <th mat-header-cell *matHeaderCellDef class="header-cell">
-          Company Name
-          <span class="sort-filter-icons">
-            <mat-icon>arrow_upward</mat-icon>
-            <mat-icon>filter_list</mat-icon>
-          </span>
-        </th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
-  
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef class="header-cell">
-          Email
-          <span class="sort-filter-icons">
-            <mat-icon>arrow_upward</mat-icon>
-            <mat-icon>filter_list</mat-icon>
-          </span>
-        </th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
-  
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef class="header-cell">
-          Phone
-          <span class="sort-filter-icons">
-            <mat-icon>arrow_upward</mat-icon>
-            <mat-icon>filter_list</mat-icon>
-          </span>
-        </th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
-  
-      <ng-container matColumnDef="contactOwner">
-        <th mat-header-cell *matHeaderCellDef class="header-cell">
-          Contact Owner
-          <span class="sort-filter-icons">
-            <mat-icon>arrow_upward</mat-icon>
-            <mat-icon>filter_list</mat-icon>
-          </span>
-        </th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  
-      <tr mat-row *matNoDataRow class="mat-no-data-row">
-        <td [colSpan]="displayedColumns.length" class="no-data-cell">
-          <ng-content></ng-content>
-        </td>
-      </tr>
-    </mat-table>
+  <mat-table [dataSource]="dataSource">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef class="checkbox-cell">
+        <mat-checkbox (change)="onSelectAll($event)"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row" class="checkbox-cell">
+        <ng-content select="app-checkbox"></ng-content>
+      </td>
+    </ng-container>
+
+    <!-- Dynamically generate columns -->
+    <ng-container *ngFor="let header of headers" [matColumnDef]="header.key">
+      <th mat-header-cell *matHeaderCellDef class="header-cell">
+        {{ header.label }}
+        <span class="sort-filter-icons">
+          <mat-icon>arrow_upward</mat-icon>
+          <mat-icon>filter_list</mat-icon>
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <ng-container *ngIf="header.key === 'owner'; else defaultCell">
+          <span class="owner-circle">{{ row[header.key]?.charAt(0) }}</span>
+          {{ row[header.key] }}
+        </ng-container>
+        <ng-template #defaultCell>
+          {{ row[header.key] }}
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <tr mat-row *matNoDataRow class="mat-no-data-row">
+      <td [colSpan]="displayedColumns.length" class="no-data-cell">
+        No data available
+      </td>
+    </tr>
+  </mat-table>
 </div>

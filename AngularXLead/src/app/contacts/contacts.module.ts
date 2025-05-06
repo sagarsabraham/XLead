@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ContactsRoutingModule } from './contacts-routing.module';
-
+import { ContactRoutingModule } from './contacts-routing.module';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactsTableComponent } from '../shared/contacts-table/contacts-table.component';
+import { TableCheckboxComponent } from '../shared/checkbox/checkbox.component';
+import { TableOutlineComponent } from '../shared/table-outline/table-outline.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ContactPageComponent,
+    ContactsTableComponent,
+    TableCheckboxComponent,
+    TableOutlineComponent
+  ],
   imports: [
     CommonModule,
-    ContactsRoutingModule
+    ContactRoutingModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class ContactsModule { }
