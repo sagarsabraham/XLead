@@ -1,0 +1,79 @@
+.table-container {
+    overflow-x: auto;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+  }
+  
+  mat-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-height: 200px; 
+    display: block; 
+  }
+  
+  mat-header-row {
+    border-bottom: 1px solid #d1d5db; /* border-gray-300 */
+  }
+  
+  .header-cell {
+    background-color: #f4f4f4; /* Light gray background as in the image */
+    font-weight: bold;
+    padding: 8px 16px;
+    border-right: 1px solid #d1d5db; /* border-gray-300 */
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .header-cell.checkbox-cell {
+    text-align: center;
+    width: 50px; 
+    
+  
+  }
+  
+  mat-cell {
+    padding: 8px 16px;
+    border-right: 1px solid #d1d5db; /* border-gray-300 */
+    text-align: left;
+  }
+  
+  .checkbox-cell {
+    text-align: center;
+    width: 50px; 
+    margin-bottom: -3px;
+  }
+  
+  .sort-filter-icons {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  
+  .sort-filter-icons mat-icon {
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 4px;
+    color: #6b7280; /* gray-500 for icons */
+  }
+  
+  
+  mat-header-row th:last-child,
+  mat-cell:last-child {
+    border-right: none;
+  }
+  
+  
+  .mat-no-data-row {
+    height: 150px; 
+    border-bottom: 1px solid #d1d5db; /* border-gray-300 */
+  }
+  
+  .no-data-cell {
+    text-align: center;
+    padding: 16px;
+    border-right: none !important; 
+  }
+  
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
