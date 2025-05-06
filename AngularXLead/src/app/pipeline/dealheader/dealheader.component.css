@@ -4,6 +4,8 @@
     padding: 12px;
     background-color: white;
     border-bottom: 1px solid #ccc;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
   
 .title {
@@ -21,3 +23,16 @@
     color: #666666;
 }
   
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    height: 100%;
+}

@@ -3,10 +3,11 @@ import { DealbodyComponent } from '../dealbody/dealbody.component';
 import { DealcardComponent } from '../dealcard/dealcard.component';
 import { DealheaderComponent } from '../dealheader/dealheader.component';
 import { CommonModule } from '@angular/common';
+import { DealfooterComponent } from '../dealfooter/dealfooter.component';
 
 @Component({
   selector: 'app-pipelinehome',
-  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule],
+  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule, DealfooterComponent],
   templateUrl: './pipelinehome.component.html',
   styleUrl: './pipelinehome.component.css'
 })
@@ -15,6 +16,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Qualification', 
       amount: '$ 1,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -39,6 +42,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Need Analysis', 
       amount: '$ 6,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -72,6 +77,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Proposal/Price Quote', 
       amount: '$ 10,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -96,6 +103,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Negotiation/Review', 
       amount: '$ 3,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -129,6 +138,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Closed Won', 
       amount: '$ 10,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -171,6 +182,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Closed Lost', 
       amount: '$ 5,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -196,6 +209,18 @@ export class PipelinehomeComponent {
 
   get connectedDropLists(): string[] {
     return this.stages.map(stage => stage.name);
+  }
+
+  toggleCollapse(index: number) {
+    this.stages[index].collapsed = !this.stages[index].collapsed;
+  }
+
+  onMouseEnter(index: number) {
+    this.stages[index].hover = true;
+  }
+
+  onMouseLeave(index: number) {
+    this.stages[index].hover = false;
   }
 
   onDealDropped(event: { previousStage: string, currentStage: string, previousIndex: number, currentIndex: number }) {
