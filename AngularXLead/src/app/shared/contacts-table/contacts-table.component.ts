@@ -4,7 +4,6 @@ import { MatPaginatorModule, MatPaginator, PageEvent } from '@angular/material/p
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { TableCheckboxComponent } from '../checkbox/checkbox.component';
 import { TableOutlineComponent } from '../table-outline/table-outline.component';
 
 @Component({
@@ -16,7 +15,6 @@ import { TableOutlineComponent } from '../table-outline/table-outline.component'
     MatPaginatorModule,
     MatCheckboxModule,
     MatIconModule,
-    TableCheckboxComponent,
     TableOutlineComponent
   ],
   templateUrl: './contacts-table.component.html',
@@ -29,6 +27,9 @@ export class ContactsTableComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<any>;
+  sortDirection: { [key: string]: 'asc' | 'desc' } = {};
+  sortedColumn: string | null = null;
+  allSelected: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -39,8 +40,6 @@ export class ContactsTableComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.displayedColumns = ['select', ...this.headers.map(header => header.key)];
     this.dataSource.data = this.data.map(item => ({ ...item, selected: false }));
-    console.log('ContactsTable displayedColumns:', this.displayedColumns);
-    console.log('ContactsTable dataSource:', this.dataSource.data);
   }
 
   ngAfterViewInit() {
@@ -50,26 +49,42 @@ export class ContactsTableComponent implements OnInit, AfterViewInit {
       this.paginator.pageSize = 5;
       this.paginator.firstPage();
       this.cdr.detectChanges();
-      console.log('Paginator initialized:', this.paginator);
-      console.log('Paginator length:', this.paginator.length);
-      console.log('Displayed data:', this.dataSource.filteredData);
     }
   }
 
   onPageChange(event: PageEvent) {
-    console.log('Page changed:', event);
-    console.log('Displayed data:', this.dataSource.filteredData);
     this.cdr.detectChanges();
   }
 
   onCheckboxChange(row: any, checked: boolean) {
     row.selected = checked;
+    this.allSelected = this.dataSource.data.every(item => item.selected);
     this.cdr.detectChanges();
   }
 
-  onSelectAll(event: any) {
-    const checked = event.checked;
-    this.dataSource.data = this.dataSource.data.map(item => ({ ...item, selected: checked }));
+  onSelectAll(checked: boolean) {
+    this.allSelected = checked;
+    this.dataSource.data.forEach(item => (item.selected = checked));
+    this.cdr.detectChanges();
+  }
+
+  onSort(event: { key: string, direction: 'asc' | 'desc' }) {
+    const { key, direction } = event;
+    this.sortedColumn = key;
+    this.sortDirection[key] = direction;
+
+    this.dataSource.data = [...this.dataSource.data].sort((a, b) => {
+      const valueA = a[key];
+      const valueB = b[key];
+      if (typeof valueA === 'string') {
+        return direction === 'asc'
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+      } else {
+        return direction === 'asc' ? valueA - valueB : valueB - valueA;
+      }
+    });
+
     this.cdr.detectChanges();
   }
 }
