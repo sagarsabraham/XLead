@@ -4,18 +4,28 @@ import { DealcardComponent } from '../dealcard/dealcard.component';
 import { DealheaderComponent } from '../dealheader/dealheader.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
+import { TopcardComponent } from '../topcard/topcard.component';
+
+
+import { DealfooterComponent } from '../dealfooter/dealfooter.component';
 
 @Component({
   selector: 'app-pipelinehome',
-  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule, SharedModule],
+  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent, SharedModule],
   templateUrl: './pipelinehome.component.html',
   styleUrl: './pipelinehome.component.css'
 })
 export class PipelinehomeComponent {
+  topcardData = [
+    { amount: 120000, title: 'Total Return', isCurrency: true, icon: 'attach_money' },
+    { amount: 14, title: 'Total Count of Deals', isCurrency: false, icon: 'swap_vert' },
+  ]; 
   stages = [
     { 
       name: 'Qualification', 
       amount: '$ 1,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -40,12 +50,14 @@ export class PipelinehomeComponent {
     { 
       name: 'Need Analysis', 
       amount: '$ 6,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
-          title: 'Display Screen',
+          title: 'EV Vehicle Display',
           amount: '$1,000.00',
           date: '3 Jun 2025',
-          boName: 'KniTT (BAYADA Home Health)',
+          boName: 'Hitachi',
           department: 'DU-4',
           probability: '50%',
           region: 'US'
@@ -73,6 +85,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Proposal/Price Quote', 
       amount: '$ 10,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -97,6 +111,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Negotiation/Review', 
       amount: '$ 3,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -130,6 +146,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Closed Won', 
       amount: '$ 10,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -172,6 +190,8 @@ export class PipelinehomeComponent {
     { 
       name: 'Closed Lost', 
       amount: '$ 5,050.00', 
+      collapsed: false,
+      hover: false,
       deals : [
         {
           title: 'Display Screen',
@@ -194,41 +214,63 @@ export class PipelinehomeComponent {
       ]
     }
   ]
-  navItems = [
-    {
-      iconPath: 'assets/Pipeline.png',
-      text: 'Pipelines',
-      route: '/pipelines',
-      isActive: true,
-    },
-    {
-      iconPath: 'assets/Contact.png',
-      text: 'Contacts',
-      route: '/contacts',
-      isActive: false,
-    },
-    {
+  // navItems = [
+  //   {
+  //     iconPath: 'assets/Pipeline.png',
+  //     text: 'Pipelines',
+  //     route: '/pipelines',
+  //     isActive: true,
+  //   },
+  //   {
+  //     iconPath: 'assets/Contact.png',
+  //     text: 'Contacts',
+  //     route: '/contacts',
+  //     isActive: false,
+  //   },
+  //   {
     
-      iconPath: 'assets/Company.png',
-      text: 'Companies',
-      route: '/companies',
-      isActive: false,
-    },
-    {
-      iconPath: 'assets/Dashboard.png',
-      text: 'Dashboard',
-      route: '/dashboard',
-      isActive: false,
-    },
+  //     iconPath: 'assets/Company.png',
+  //     text: 'Companies',
+  //     route: '/companies',
+  //     isActive: false,
+  //   },
+  //   {
+  //     iconPath: 'assets/Dashboard.png',
+  //     text: 'Dashboard',
+  //     route: '/dashboard',
+  //     isActive: false,
+  //   },
+  // ];
+
+  // profile = {
+  //   name: 'Subhash K Joseph',
+  //   role: 'Admin',
+  // };
+
+  icons = [
+    'assets/Pipeline.png',
+    'assets/Contact.png',
+    'assets/Company.png',
+    'assets/Dashboard.png',
   ];
 
-  profile = {
-    name: 'Subhash K Joseph',
-    role: 'Admin',
-  };
+  name = 'Subhash K Joseph';
+  role = 'Admin';
 
   get connectedDropLists(): string[] {
     return this.stages.map(stage => stage.name);
+  }
+
+  toggleCollapse(index: number) {
+    this.stages[index].collapsed = !this.stages[index].collapsed;
+  }
+
+  onMouseEnter(index: number) {
+    this.stages[index].hover = true;
+  }
+
+  onMouseLeave(index: number) {
+    this.stages[index].hover = false;
   }
 
   onDealDropped(event: { previousStage: string, currentStage: string, previousIndex: number, currentIndex: number }) {

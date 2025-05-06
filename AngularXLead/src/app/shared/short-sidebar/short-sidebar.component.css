@@ -1,0 +1,51 @@
+.short-sidebar {
+    height: 1024px;
+    width: 76px;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 16px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+  }
+  
+  .icons {
+    flex: 1;
+    display: flex;
+    top: 242px;
+    left: 45px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .profile-section {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .initials-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .role {
+    font-size: 12px;
+    color: #ff0000;
+    text-align: center;
+  }

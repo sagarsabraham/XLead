@@ -11,4 +11,5 @@ export class DealheaderComponent {
   @Input() stageName: string = '';
   @Input() amount: string = '';
   @Input() dealCount: number = 0;
+  @Input() collapsed = false;
 }
