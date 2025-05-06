@@ -53,10 +53,10 @@ export class PipelinehomeComponent {
       hover: false,
       deals : [
         {
-          title: 'Display Screen',
+          title: 'EV Vehicle Display',
           amount: '$1,000.00',
           date: '3 Jun 2025',
-          boName: 'KniTT (BAYADA Home Health)',
+          boName: 'Hitachi',
           department: 'DU-4',
           probability: '50%',
           region: 'US'

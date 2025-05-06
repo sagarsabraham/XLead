@@ -14,8 +14,10 @@
     gap: 40px;
 }
 .stage-card {
+    position: relative;
     min-width: 249px;
-    background: #fff;
+    min-height: 738px;
+    background: white;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -26,20 +28,13 @@
 }
 
 .stage-card.collapsed {
-    flex: 0 0 50px !important; /* Flex-grow, flex-shrink, flex-basis */
+    flex: 0 0 50px !important;
     max-width: 50px !important;
     min-width: 50px !important;
     width: 50px !important;
     overflow: hidden;
     padding: 0;
     transition: width 0.3s ease;
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: space-between; */
-}
-
-.stage-card:hover {
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .stage-card.collapsed * {
@@ -49,4 +44,10 @@
     max-width: 100%;
 }
   
+app-dealfooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
