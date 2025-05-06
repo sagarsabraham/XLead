@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactPageComponent } from './contact-page/contact-page.component';
+import { PipelinehomeComponent } from './pipelinehome/pipelinehome.component';
 
 const routes: Routes = [
-  {path: '', component: ContactPageComponent}, // Default route
+  {path: '', component: PipelinehomeComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ContactsRoutingModule { }
+export class PipelineRoutingModule { }

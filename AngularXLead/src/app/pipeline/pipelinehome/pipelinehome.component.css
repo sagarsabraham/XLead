@@ -1,0 +1,17 @@
+.card-container {
+    display: flex; 
+    gap: 10px; 
+    overflow-x: auto; 
+    padding: 16px;
+}
+
+.stage-card {
+    min-width: 249px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}

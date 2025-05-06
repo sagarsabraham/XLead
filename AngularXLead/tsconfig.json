@@ -16,7 +16,9 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "types": ["jasmine"], // Ensure 'jasmine' is listed here
+    "typeRoots": ["./node_modules/@types"] // Ensure this path includes @types
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
