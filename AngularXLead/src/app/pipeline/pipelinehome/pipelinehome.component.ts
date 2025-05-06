@@ -3,15 +3,22 @@ import { DealbodyComponent } from '../dealbody/dealbody.component';
 import { DealcardComponent } from '../dealcard/dealcard.component';
 import { DealheaderComponent } from '../dealheader/dealheader.component';
 import { CommonModule } from '@angular/common';
+import { TopcardComponent } from '../topcard/topcard.component';
+
+
 import { DealfooterComponent } from '../dealfooter/dealfooter.component';
 
 @Component({
   selector: 'app-pipelinehome',
-  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule, DealfooterComponent],
+  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent],
   templateUrl: './pipelinehome.component.html',
   styleUrl: './pipelinehome.component.css'
 })
 export class PipelinehomeComponent {
+  topcardData = [
+    { amount: 120000, title: 'Total Return', isCurrency: true, icon: 'attach_money' },
+    { amount: 14, title: 'Total Count of Deals', isCurrency: false, icon: 'swap_vert' },
+  ]; 
   stages = [
     { 
       name: 'Qualification', 
