@@ -3,8 +3,16 @@
     gap: 10px; 
     overflow-x: auto; 
     padding: 16px;
+    
 }
-
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 16px;
+    gap: 40px;
+}
 .stage-card {
     min-width: 249px;
     background: #fff;
