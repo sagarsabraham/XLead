@@ -1,25 +1,21 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table-outline',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="mat-elevation-z8 table-container">
-      <ng-content></ng-content>
-    </div>
-  `,
-  styles: [`
-    .mat-elevation-z8 {
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .table-container {
-      width: 100%;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-  `]
+  templateUrl: './table-outline.component.html',
+  styleUrls: ['./table-outline.component.css'],
+  imports: [CommonModule,MatTableModule,MatCheckboxModule,MatIconModule]
 })
-export class TableOutlineComponent {}
+export class TableOutlineComponent {
+  @Input() headers: { key: string; label: string }[] = [];
+  @Input() displayedColumns: string[] = [];
+  @Output() selectAll = new EventEmitter<boolean>();
+
+  onSelectAll(event: any): void {
+    this.selectAll.emit(event.checked);
+  }
+}

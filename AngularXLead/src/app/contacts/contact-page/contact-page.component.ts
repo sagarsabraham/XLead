@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { ContactsTableComponent } from '../../shared/contacts-table/contacts-table.component';
-import { TableCheckboxComponent } from '../../shared/checkbox/checkbox.component';
-import { TableOutlineComponent } from '../../shared/table-outline/table-outline.component';
+// import { TableCheckboxComponent } from '../../shared/checkbox/checkbox.component';
+// import { TableOutlineComponent } from '../../shared/table-outline/table-outline.component';
 
 @Component({
   selector: 'app-contact-page',
   standalone: true,
   imports: [
-    ContactsTableComponent,
-    TableCheckboxComponent,
-    TableOutlineComponent
+    ContactsTableComponent
+   
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.css']

@@ -14,6 +14,9 @@
 .header-cell {
   position: relative;
   padding-right: 40px;
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
 }
 
 .sort-filter-icons {
@@ -30,24 +33,6 @@ mat-icon {
   cursor: pointer;
 }
 
-.no-data-cell {
-  text-align: center;
-  padding: 16px;
-  color: #666;
-}
-
-.owner-circle {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: #673ab7;
-  color: white;
-  text-align: center;
-  line-height: 24px;
-  margin-right: 8px;
-}
-
-td.mat-cell {
-  padding: 8px;
+mat-icon:hover {
+  color: #333;
 }

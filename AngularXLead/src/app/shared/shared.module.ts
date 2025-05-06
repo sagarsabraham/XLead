@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { TableCheckboxComponent } from './checkbox/checkbox.component';
+import { TableOutlineComponent } from './table-outline/table-outline.component';
 
 @NgModule({
   declarations: [],
@@ -14,6 +16,6 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     FormsModule
   ],
-  exports: []
+  exports: [TableCheckboxComponent,TableOutlineComponent]
 })
 export class SharedModule { }
