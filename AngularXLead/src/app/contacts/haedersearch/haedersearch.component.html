@@ -1,0 +1,19 @@
+<div class="search-bar-container mat-elevation-z2">
+  <mat-form-field appearance="outline" class="custom-search-field">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      (input)="onSearch()"
+      placeholder="Search..."
+    />
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <app-export
+  [iconName]="posts[0].iconName"
+  [buttonText]="posts[0].buttonText"
+  ></app-export>
+</div>
