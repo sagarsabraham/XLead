@@ -1,0 +1,17 @@
+.icon-text-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: transparent;
+  }
+  
+  .icon-text-container.active {
+    background-color: #333333;
+  }
+  
+  .text {
+    font-size: 16px;
+    color: #ffffff;
+  }

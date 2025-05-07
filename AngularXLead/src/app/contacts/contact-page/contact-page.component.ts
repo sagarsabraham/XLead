@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
+// import { TableOutlineComponent } from '../../shared/table-outline/table-outline.component';
+// import { TableCheckboxComponent } from '../../shared/checkbox/checkbox.component';
+// import { CommonModule } from '@angular/common';
+// import { SharedModule } from '../../shared/shared.module';
 import { ContactsTableComponent } from '../../shared/contacts-table/contacts-table.component';
 import { HeadersearchComponent } from '../../shared/headersearch/headersearch.component';
+import { ShortSidebarComponent } from '../../shared/short-sidebar/short-sidebar.component';
+
 
 @Component({
   selector: 'app-contact-page',
   standalone: true,
   imports: [
     ContactsTableComponent,
-    HeadersearchComponent
+    HeadersearchComponent,
+    ShortSidebarComponent
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.css']
@@ -73,6 +80,17 @@ export class ContactPageComponent {
     { name: 'Hannah Myers', company: 'Tech Corp', email: 'hannah@techcorp.com', phone: '901-234-5682', owner: 'Bob' },
     { name: 'Isaac Price', company: 'Innovate Inc', email: 'isaac@innovate.com', phone: '012-345-6793', owner: 'Charlie' }
   ];
+
+
+  icons = [
+    'assets/Pipeline.png',
+    'assets/Contact.png',
+    'assets/Company.png',
+    'assets/Dashboard.png',
+  ];
+
+  name = 'Subhash K Joseph';
+  role = 'Admin';
 
   onSearch(searchText: string) {
     console.log('Search term from ContactPage:', searchText);

@@ -1,0 +1,9 @@
+<div class="short-sidebar">
+    <!-- Icons -->
+    <div class="icons">
+      <app-icon *ngFor="let icon of icons" [iconPath]="icon"></app-icon>
+    </div>
+  
+    <!-- Profile (Initials Only) -->
+      <div class="initials-badge">{{ initials }}</div>
+</div>
