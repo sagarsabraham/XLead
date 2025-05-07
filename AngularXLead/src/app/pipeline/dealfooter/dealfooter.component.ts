@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ExportComponent } from '../../export/export.component';
 
 @Component({
   selector: 'app-dealfooter',
-  imports: [MatIconModule, MatButtonModule],
+  imports: [MatIconModule, MatButtonModule, ExportComponent],
   templateUrl: './dealfooter.component.html',
   styleUrl: './dealfooter.component.css'
 })
@@ -13,5 +14,9 @@ export class DealfooterComponent {
 
   onCollapse() {
     this.collapse.emit();
+  }
+
+  onAddDeal() {
+    console.log('Add Deal clicked');
   }
 }

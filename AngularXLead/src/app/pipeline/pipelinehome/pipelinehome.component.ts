@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DealbodyComponent } from '../dealbody/dealbody.component';
 import { DealcardComponent } from '../dealcard/dealcard.component';
 import { DealheaderComponent } from '../dealheader/dealheader.component';
@@ -8,10 +8,11 @@ import { TopcardComponent } from '../topcard/topcard.component';
 
 
 import { DealfooterComponent } from '../dealfooter/dealfooter.component';
+import { ExportComponent } from '../../export/export.component';
 
 @Component({
   selector: 'app-pipelinehome',
-  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent, SharedModule],
+  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent, SharedModule, ExportComponent],
   templateUrl: './pipelinehome.component.html',
   styleUrl: './pipelinehome.component.css'
 })
@@ -283,5 +284,9 @@ export class PipelinehomeComponent {
       const [movedItem] = previousDeals.splice(previousIndex, 1);
       currentDeals.splice(currentIndex, 0, movedItem);
     }
+  }
+
+  onAddDeal() {
+    console.log('Add Deal clicked');
   }
 }

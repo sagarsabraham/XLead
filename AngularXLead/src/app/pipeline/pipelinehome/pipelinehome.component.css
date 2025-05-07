@@ -13,15 +13,29 @@
   
   .content-container {
     flex: 1;
-    margin-left: 76px;
+    margin-left: 40px;
     max-width: calc(100% - 76px);
     overflow-x: auto;
   }
 
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
 
+.topbar h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 16px;
+    font-weight: bold;
+}
 
-
-
+app-export {
+    margin-right: 10px;
+    margin-top: 2px;
+    padding: 8px 16px;
+}
 
 .card-container {
     display: flex; 
@@ -34,9 +48,9 @@
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-    margin: 20px auto;
+    /* margin: 20px auto; */
     padding: 0 16px;
-    gap: 40px;
+    gap: 20px;
 }
 .stage-card {
     position: relative;

@@ -28,7 +28,7 @@ export class HeadersearchComponent {
     {
       iconName: 'description',
       buttonText: 'Export'
-    }
+    },
   ];
 
   @Output() search = new EventEmitter<string>();

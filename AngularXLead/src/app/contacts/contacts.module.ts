@@ -12,16 +12,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
-    ContactPageComponent,
-    ContactsTableComponent,
-    TableCheckboxComponent,
-    TableOutlineComponent
+    // ContactPageComponent,
+    // ContactsTableComponent,
+    // TableCheckboxComponent,
+    // TableOutlineComponent
   ],
   imports: [
     CommonModule,
     TableOutlineComponent, 
     TableCheckboxComponent,
     ContactPageComponent,
+    ContactsTableComponent,
     SharedModule,
     ContactRoutingModule,
     MatTableModule,

@@ -5,6 +5,14 @@
             <app-short-sidebar [icons]="icons" [name]="name" [role]="role"></app-short-sidebar>
     </div>
     <div class="content-container">
+        <div class="topbar">
+            <h1>Pipelines</h1>
+            <app-export
+                [iconName]="'add'"
+                [buttonText]="'Deal'"
+                (click)="onAddDeal()"
+            ></app-export>
+        </div>
         <div class="container">
             <app-topcard 
             *ngFor="let card of topcardData"
