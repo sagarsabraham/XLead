@@ -1,0 +1,73 @@
+.search-bar-container {
+    padding: 10px 15px;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px 4px 0 0;
+    height: 56px; /* Set a fixed height for the header bar to contain all elements */
+  }
+  
+  .custom-search-field {
+    background-color: white;
+    border-radius: 6px;
+    width: 200px;
+    height: 36px; /* Ensure the search field fits within the container */
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 13px;
+  }
+  
+  /* Override Material Styles */
+  ::ng-deep .custom-search-field .mat-form-field-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 36px !important; /* Match the parent height */
+    display: flex;
+    align-items: center;
+  }
+  
+  ::ng-deep .custom-search-field .mat-form-field-flex {
+    background-color: white;
+    border-radius: 6px;
+    height: 36px !important; /* Match the parent height */
+    padding: 0 8px !important; /* Add padding to the input area */
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+  }
+  
+  ::ng-deep .custom-search-field .mat-form-field-outline {
+    border-radius: 6px;
+  }
+  
+  ::ng-deep .custom-search-field .mat-input-element {
+    font-size: 13px;
+    padding: 0;
+    height: 28px !important;
+    line-height: 28px !important;
+    margin: 0;
+    color: #333;
+    width: 100%; /* Ensure the input doesn't overflow */
+    box-sizing: border-box;
+  }
+  
+  ::ng-deep .custom-search-field .mat-icon-button {
+    height: 28px !important;
+    width: 28px !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  ::ng-deep .custom-search-field .mat-icon {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    color: #555;
+  }

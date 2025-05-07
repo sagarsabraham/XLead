@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactPageComponent } from './contact-page.component';
+import { HeadersearchComponent } from './headersearch.component';
 
-describe('ContactPageComponent', () => {
-  let component: ContactPageComponent;
-  let fixture: ComponentFixture<ContactPageComponent>;
+describe('HeadersearchComponent', () => {
+  let component: HeadersearchComponent;
+  let fixture: ComponentFixture<HeadersearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactPageComponent]
+      imports: [HeadersearchComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContactPageComponent);
+    fixture = TestBed.createComponent(HeadersearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

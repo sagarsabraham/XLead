@@ -1,46 +1,24 @@
 <app-table-outline
+  [dataSource]="dataSource"
   [headers]="headers"
-  [displayedColumns]="['select', 'name', 'company', 'email', 'phone', 'owner']"
+  [displayedColumns]="displayedColumns"
   [sortDirection]="sortDirection"
   [sortedColumn]="sortedColumn"
+  [allSelected]="allSelected"
+  [someSelected]="someSelected"
   (selectAll)="onSelectAll($event)"
   (sort)="onSort($event)"
+  (checkboxChange)="onCheckboxChange($any($event).row, $any($event).checked)"
 ></app-table-outline>
 
 <div class="layout-container">
   <div class="sidebar-space"></div>
   <div class="table-content-area">
-    <div class="unified-table-container mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 {{classNames}} custom-table">
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="select">
-          <td mat-cell *matCellDef="let row" class="checkbox-cell">
-            <mat-checkbox [checked]="row.selected" (change)="onCheckboxChange(row, $event.checked)"></mat-checkbox>
-          </td>
-        </ng-container>
-
-        <!-- Dynamically generate columns -->
-        <ng-container *ngFor="let header of headers" [matColumnDef]="header.key">
-          <td mat-cell *matCellDef="let row" [ngClass]="{'owner-cell': header.key === 'owner', 'sorted-cell': sortedColumn === header.key}">
-            <ng-container *ngIf="header.key === 'owner'; else defaultCell">
-              <span class="owner-circle">{{ row[header.key]?.charAt(0) }}</span>
-              {{ row[header.key] }}
-            </ng-container>
-            <ng-template #defaultCell>
-              {{ row[header.key] }}
-            </ng-template>
-          </td>
-        </ng-container>
-
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        <tr mat-row *matNoDataRow class="mat-no-data-row">
-          <td [colSpan]="displayedColumns.length" class="no-data-cell">
-            No data available
-          </td>
-        </tr>
-      </table>
-    </div>
-    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5]" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      (page)="onPageChange($event)"
+    ></mat-paginator>
   </div>
 </div>

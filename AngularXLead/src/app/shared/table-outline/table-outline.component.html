@@ -2,12 +2,22 @@
   <div class="sidebar-space"></div>
   <div class="table-content-area">
     <div class="unified-table-container mat-elevation-z8">
-      <table mat-table class="custom-table">
+      <table mat-table [dataSource]="dataSource" class="custom-table">
         <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef class="checkbox-cell">
-            <mat-checkbox (change)="onSelectAll($event)"></mat-checkbox>
+            <app-checkbox 
+              [isChecked]="allSelected" 
+              [isIndeterminate]="headerCheckboxIndeterminate"
+              (checkboxChange)="onSelectAll($event)">
+            </app-checkbox>
           </th>
+          <td mat-cell *matCellDef="let row" class="checkbox-cell">
+            <app-checkbox 
+              [isChecked]="row.selected" 
+              (checkboxChange)="checkboxChange.emit({ row, checked: $event })">
+            </app-checkbox>
+          </td>
         </ng-container>
 
         <!-- Dynamically generate columns -->
@@ -21,9 +31,25 @@
               <mat-icon>filter_list</mat-icon>
             </span>
           </th>
+          <td mat-cell *matCellDef="let row" [ngClass]="{'owner-cell': header.key === 'owner', 'sorted-cell': sortedColumn === header.key}">
+            <ng-container *ngIf="header.key === 'owner'; else defaultCell">
+              <span class="owner-circle">{{ row[header.key]?.charAt(0) }}</span>
+              {{ row[header.key] }}
+            </ng-container>
+            <ng-template #defaultCell>
+              {{ row[header.key] }}
+            </ng-template>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr mat-row *matNoDataRow class="mat-no-data-row">
+          <td [colSpan]="displayedColumns.length" class="no-data-cell">
+            No data available
+          </td>
+        </tr>
       </table>
     </div>
   </div>
