@@ -214,48 +214,48 @@ export class PipelinehomeComponent {
       ]
     }
   ]
-  // navItems = [
-  //   {
-  //     iconPath: 'assets/Pipeline.png',
-  //     text: 'Pipelines',
-  //     route: '/pipelines',
-  //     isActive: true,
-  //   },
-  //   {
-  //     iconPath: 'assets/Contact.png',
-  //     text: 'Contacts',
-  //     route: '/contacts',
-  //     isActive: false,
-  //   },
-  //   {
+  navItems = [
+    {
+      iconPath: 'assets/Pipeline.png',
+      text: 'Pipelines',
+      route: '/pipelines',
+      isActive: true,
+    },
+    {
+      iconPath: 'assets/Contact.png',
+      text: 'Contacts',
+      route: '/contacts',
+      isActive: false,
+    },
+    {
     
-  //     iconPath: 'assets/Company.png',
-  //     text: 'Companies',
-  //     route: '/companies',
-  //     isActive: false,
-  //   },
-  //   {
-  //     iconPath: 'assets/Dashboard.png',
-  //     text: 'Dashboard',
-  //     route: '/dashboard',
-  //     isActive: false,
-  //   },
-  // ];
-
-  // profile = {
-  //   name: 'Subhash K Joseph',
-  //   role: 'Admin',
-  // };
-
-  icons = [
-    'assets/Pipeline.png',
-    'assets/Contact.png',
-    'assets/Company.png',
-    'assets/Dashboard.png',
+      iconPath: 'assets/Company.png',
+      text: 'Companies',
+      route: '/companies',
+      isActive: false,
+    },
+    {
+      iconPath: 'assets/Dashboard.png',
+      text: 'Dashboard',
+      route: '/dashboard',
+      isActive: false,
+    },
   ];
 
-  name = 'Subhash K Joseph';
-  role = 'Admin';
+  profile = {
+    name: 'Subhash K Joseph',
+    role: 'Admin',
+  };
+
+  // icons = [
+  //   'assets/Pipeline.png',
+  //   'assets/Contact.png',
+  //   'assets/Company.png',
+  //   'assets/Dashboard.png',
+  // ];
+
+  // name = 'Subhash K Joseph';
+  // role = 'Admin';
 
   get connectedDropLists(): string[] {
     return this.stages.map(stage => stage.name);

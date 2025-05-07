@@ -1,11 +1,11 @@
-/* .total-container{
+.total-container{
     display: flex;
-    max-width: 75%;
-} */
-.total-container {
+    /* max-width: 75%; */
+}
+/* .total-container {
     display: flex;
     height: 100vh;
-  }
+  } */
   
   .sidebar-container {
     flex: 0 0 76px;
