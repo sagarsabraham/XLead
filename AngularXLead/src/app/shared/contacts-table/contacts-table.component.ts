@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { TableCheckboxComponent } from '../checkbox/checkbox.component';
 import { TableOutlineComponent } from '../table-outline/table-outline.component';
+import { HaedersearchComponent } from '../../contacts/haedersearch/haedersearch.component';
 
 @Component({
   selector: 'app-contacts-table',
@@ -17,7 +18,7 @@ import { TableOutlineComponent } from '../table-outline/table-outline.component'
     MatCheckboxModule,
     MatIconModule,
     TableCheckboxComponent,
-    TableOutlineComponent
+    TableOutlineComponent,HaedersearchComponent
   ],
   templateUrl: './contacts-table.component.html',
   styleUrls: ['./contacts-table.component.css']

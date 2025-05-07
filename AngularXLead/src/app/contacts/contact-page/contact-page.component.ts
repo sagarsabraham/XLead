@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactsTableComponent } from '../../shared/contacts-table/contacts-table.component';
+import { SharedModule } from '../../shared/shared.module';
+import { HaedersearchComponent } from '../haedersearch/haedersearch.component';
 // import { TableCheckboxComponent } from '../../shared/checkbox/checkbox.component';
 // import { TableOutlineComponent } from '../../shared/table-outline/table-outline.component';
 
@@ -7,7 +9,7 @@ import { ContactsTableComponent } from '../../shared/contacts-table/contacts-tab
   selector: 'app-contact-page',
   standalone: true,
   imports: [
-    ContactsTableComponent
+    ContactsTableComponent,SharedModule,HaedersearchComponent
    
   ],
   templateUrl: './contact-page.component.html',
