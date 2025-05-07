@@ -1,19 +1,30 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-checkbox',
-  standalone: true,
-  imports: [MatCheckboxModule],
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  styleUrls: ['./checkbox.component.css'],
+  standalone: true,
+  imports: [CommonModule, MatCheckboxModule]
 })
-export class TableCheckboxComponent {
+export class TableCheckboxComponent implements OnChanges {
   @Input() isChecked: boolean = false;
+  @Input() isIndeterminate: boolean = false;
   @Output() checkboxChange = new EventEmitter<boolean>();
 
-  onCheckboxChange(event: MatCheckboxChange) {
-    this.checkboxChange.emit(event.checked);
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isChecked'] || changes['isIndeterminate']) {
+      this.cdr.detectChanges();
+    }
   }
-} 
+
+  onChange(checked: boolean) {
+    this.isChecked = checked;
+    this.checkboxChange.emit(checked);
+    this.cdr.detectChanges();
+  }
+}

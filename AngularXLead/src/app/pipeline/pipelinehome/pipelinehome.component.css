@@ -1,3 +1,28 @@
+/* .total-container{
+    display: flex;
+    max-width: 75%;
+} */
+.total-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar-container {
+    flex: 0 0 76px;
+  }
+  
+  .content-container {
+    flex: 1;
+    margin-left: 76px;
+    max-width: calc(100% - 76px);
+    overflow-x: auto;
+  }
+
+
+
+
+
+
 .card-container {
     display: flex; 
     gap: 10px; 

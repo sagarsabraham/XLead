@@ -9,6 +9,7 @@ import { DealcardComponent } from './dealcard/dealcard.component';
 import { DealheaderComponent } from './dealheader/dealheader.component';
 import { PipelinehomeComponent } from './pipelinehome/pipelinehome.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DealcardComponent,
     DealheaderComponent,
     PipelinehomeComponent,
-    DragDropModule
+    DragDropModule,
+    SharedModule
   ]
 })
 export class PipelineModule { }

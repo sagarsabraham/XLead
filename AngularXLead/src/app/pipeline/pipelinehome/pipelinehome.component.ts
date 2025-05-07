@@ -3,6 +3,7 @@ import { DealbodyComponent } from '../dealbody/dealbody.component';
 import { DealcardComponent } from '../dealcard/dealcard.component';
 import { DealheaderComponent } from '../dealheader/dealheader.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 import { TopcardComponent } from '../topcard/topcard.component';
 
 
@@ -10,7 +11,7 @@ import { DealfooterComponent } from '../dealfooter/dealfooter.component';
 
 @Component({
   selector: 'app-pipelinehome',
-  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent],
+  imports: [DealbodyComponent, DealcardComponent, DealheaderComponent, CommonModule,TopcardComponent, DealfooterComponent, SharedModule],
   templateUrl: './pipelinehome.component.html',
   styleUrl: './pipelinehome.component.css'
 })
@@ -212,7 +213,49 @@ export class PipelinehomeComponent {
         }
       ]
     }
+  ]
+  // navItems = [
+  //   {
+  //     iconPath: 'assets/Pipeline.png',
+  //     text: 'Pipelines',
+  //     route: '/pipelines',
+  //     isActive: true,
+  //   },
+  //   {
+  //     iconPath: 'assets/Contact.png',
+  //     text: 'Contacts',
+  //     route: '/contacts',
+  //     isActive: false,
+  //   },
+  //   {
+    
+  //     iconPath: 'assets/Company.png',
+  //     text: 'Companies',
+  //     route: '/companies',
+  //     isActive: false,
+  //   },
+  //   {
+  //     iconPath: 'assets/Dashboard.png',
+  //     text: 'Dashboard',
+  //     route: '/dashboard',
+  //     isActive: false,
+  //   },
+  // ];
+
+  // profile = {
+  //   name: 'Subhash K Joseph',
+  //   role: 'Admin',
+  // };
+
+  icons = [
+    'assets/Pipeline.png',
+    'assets/Contact.png',
+    'assets/Company.png',
+    'assets/Dashboard.png',
   ];
+
+  name = 'Subhash K Joseph';
+  role = 'Admin';
 
   get connectedDropLists(): string[] {
     return this.stages.map(stage => stage.name);

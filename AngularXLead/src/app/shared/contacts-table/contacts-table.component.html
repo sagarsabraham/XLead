@@ -1,0 +1,24 @@
+<app-table-outline
+  [dataSource]="dataSource"
+  [headers]="headers"
+  [displayedColumns]="displayedColumns"
+  [sortDirection]="sortDirection"
+  [sortedColumn]="sortedColumn"
+  [allSelected]="allSelected"
+  [someSelected]="someSelected"
+  (selectAll)="onSelectAll($event)"
+  (sort)="onSort($event)"
+  (checkboxChange)="onCheckboxChange($any($event).row, $any($event).checked)"
+></app-table-outline>
+
+<div class="layout-container">
+  <div class="sidebar-space"></div>
+  <div class="table-content-area">
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+.page-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+app-sidebar {
+  width: 120px;
+  height: 100%;
+}
+
+.content {
+  width: 1230px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the header aligns with the content area */
+app-header {
+  width: 100%;
+  margin-bottom: 20px; /* Add spacing below the header */
+}
+
+/* Match the layout structure of the table */
+.layout-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+
+.sidebar-space {
+  width: 120px;
+  height: 100%;
+}
+
+.table-content-area {
+  width: 1230px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 15px;
+  margin-top: 20px; /* Gap above the header search */
+}
+
+/* Ensure the header search aligns with the table content */
+.table-content-area app-headersearch {
+  width: 100%;
+  margin-bottom: 20px; /* Gap between header search and table */
+}
+
+/* Ensure the table takes the full width of the content area */
+.custom-table {
+  width: 100%;
+}

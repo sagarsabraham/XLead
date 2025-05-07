@@ -1,0 +1,24 @@
+<div class="pipeline-sidebar">
+    
+    <div class="logo">
+      <span class="logo-x">X</span><span class="logo-lead">Lead</span>
+    </div>
+  
+    <div class="nav-items">
+      <a
+        *ngFor="let item of navItems"
+        [routerLink]="item.route"
+        class="nav-link"
+      >
+        <app-icon-text
+          [iconPath]="item.iconPath"
+          [text]="item.text"
+          [isActive]="item.isActive"
+        ></app-icon-text>
+      </a>
+    </div>
+  
+    <div class="profile-section">
+      <app-profile [name]="profile.name" [role]="profile.role"></app-profile>
+    </div>
+</div>

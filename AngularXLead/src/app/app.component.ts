@@ -6,13 +6,17 @@ import { ContactPageComponent } from './contacts/contact-page/contact-page.compo
 import { PipelinehomeComponent } from './pipeline/pipelinehome/pipelinehome.component';
 
 
+
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,TableOutlineComponent,TableCheckboxComponent, RouterModule, ContactPageComponent, PipelinehomeComponent],
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
 
+  title = 'contact-app';
 }

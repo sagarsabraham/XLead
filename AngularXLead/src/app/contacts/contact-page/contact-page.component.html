@@ -1,3 +1,18 @@
-<app-table-outline></app-table-outline>
+<div class="page-layout">
+  <!-- Placeholder for the sidebar (replace with actual sidebar component) -->
+  <div class="sidebar">
 
-<app-checkbox></app-checkbox>
+    <app-short-sidebar [icons]="icons" [name]="name" [role]="role"></app-short-sidebar>
+  </div>
+  <div class="content">
+    <!-- Header Search aligned with the table -->
+    <div class="layout-container">
+      <div class="sidebar-space"></div>
+      <div class="table-content-area">
+        <app-haedersearch (search)="onSearch($event)"></app-haedersearch>
+      </div>
+    </div>
+    <!-- Table -->
+    <app-contacts-table [data]="tableData" [headers]="tableHeaders" class="custom-table"></app-contacts-table>
+  </div>
+</div>
